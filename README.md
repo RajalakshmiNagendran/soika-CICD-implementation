@@ -15,7 +15,7 @@ steps involved in Github Actions for CICD:
 
 Now if there is any push happened automatically the Github workflow will run and deploy the application in to the ECS cluster.
 
-Infrastructure security:
+# Infrastructure security:
 
 🔐 1. Network & Infrastructure Security
 VPC Design
