@@ -14,7 +14,7 @@ By this way Github actions will connect with AWS
 2. Login to Amazon ECR
 3. Build, tag, and push image to Amazon ECR
 4. Fill in the new image ID in the Amazon ECS task definition
-5. Deploy Amazon ECS task definition
+5. Deploy Amazon ECS task definition (Implement PRE-PROD and PROD Environments)
 
 Now if there is any push happened automatically the Github workflow will run and deploy the application in to the ECS cluster.
 
