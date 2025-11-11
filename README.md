@@ -4,9 +4,12 @@ created a github workflow "cicd-workflow.yml" in the following repo: https://git
 
 securing credentials for the pipeline: In Github as Repository secrets (Eg: AWS_ACCESS_KEY, AWS_SECRET_ACCESS_KEY)
 
+  <img width="1500" height="600" alt="image" src="https://github.com/user-attachments/assets/eda99855-e9e8-40cc-8986-63115187a0fb" />
+
+
 By this way Github actions will connect with AWS 
 
-steps involved in Github Actions for CICD:
+**steps involved in Github Actions for CICD:**
 1. Checkout source
 2. Login to Amazon ECR
 3. Build, tag, and push image to Amazon ECR
@@ -17,7 +20,7 @@ Now if there is any push happened automatically the Github workflow will run and
 
 # Infrastructure security:
 
-🔐 1. Network & Infrastructure Security
+🔐 **1. Network & Infrastructure Security**
 VPC Design
 
 Private Subnets for Tasks — Run ECS tasks in private subnets; only ALBs/NLBs in public subnets.
@@ -46,7 +49,7 @@ Use AWS Cloud Map for internal service discovery.
 
 Prefer PrivateLink for private access to AWS-managed services (e.g., S3, Secrets Manager).
 
-🔑 2. IAM (Identity and Access Management)
+🔑 **2. IAM (Identity and Access Management)**
 Task Execution Role
 
 Assign minimal permissions to ECS Task Execution Role (pull images, fetch secrets).
@@ -71,7 +74,7 @@ IAM Boundaries
 
 Implement permissions boundaries to control privilege escalation.
 
-🧱 3. Container Image Security
+🧱 **3. Container Image Security**
 Image Source Control
 
 Use Amazon ECR (private registry).
@@ -94,7 +97,7 @@ Image Signing
 
 Use AWS Signer or Notary v2 / Cosign for image signing & verification.
 
-🧩 4. ECS Task & Runtime Security
+🧩 **4. ECS Task & Runtime Security**
 Task Definition Security
 
 Set "readonlyRootFilesystem": true where possible.
@@ -121,7 +124,7 @@ Reference secrets in ECS task definitions (secrets block).
 
 Do not bake secrets into environment variables or images.
 
-🔐 5. Data Security
+🔐 **5. Data Security**
 Encryption at Rest
 
 EBS (Fargate storage): Enabled by default.
@@ -140,7 +143,7 @@ Enforce TLS 1.2+.
 
 Use ACM certificates for managed certs.
 
-🧭 6. CI/CD Pipeline Security
+🧭 **6. CI/CD Pipeline Security**
 Build Pipeline Hardening
 
 Use CodeBuild or GitHub Actions with least privilege IAM roles.
@@ -159,7 +162,7 @@ Use ECS deployment circuit breakers and ALB health checks.
 
 Require manual approval for production promotions.
 
-🛡️ 7. Monitoring, Logging & Detection
+🛡️ **7. Monitoring, Logging & Detection**
 AWS CloudWatch
 
 Capture ECS task logs via FireLens → CloudWatch Logs / OpenSearch.
@@ -188,7 +191,7 @@ AWS Config
 
 Monitor compliance with AWS best practices (ECS tasks in private subnets, encryption, etc.).
 
-🧰 8. Runtime & Threat Protection
+🧰 **8. Runtime & Threat Protection**
 
 Integrate runtime protection tools:
 
@@ -206,7 +209,7 @@ Privilege escalation.
 
 Unexpected binary execution.
 
-🧑‍💻 9. Access Control & Operations
+🧑‍💻 **9. Access Control & Operations**
 
 MFA for all AWS users.
 
@@ -216,7 +219,7 @@ Restrict ECS Exec Access — only allow trusted roles for debugging.
 
 CloudTrail alerts for ECS Task definition updates or role changes.
 
-🧮 10. Compliance & Governance
+🧮 **10. Compliance & Governance**
 
 AWS Config Rules:
 
@@ -234,7 +237,7 @@ Tag Resources for accountability (env, owner, cost center).
 
 Implement SCPs (Service Control Policies) in AWS Organizations.
 
-🧯 11. Backup & DR
+🧯 **11. Backup & DR**
 
 Use EFS/EBS snapshots for stateful workloads (if any).
 
@@ -242,7 +245,7 @@ Backup configuration (CloudFormation/Terraform state).
 
 Store critical secrets in multi-region Secrets Manager replication.
 
-🧩 12. Cost & Performance Hardening (Bonus)
+🧩 **12. Cost & Performance Hardening (Bonus)**
 
 Set task resource limits to prevent cost spikes.
 
@@ -250,14 +253,16 @@ Use Spot Fargate for non-prod workloads.
 
 Set budget alerts and CloudWatch anomaly detection.
 
-✅ Example Security Stack Summary
-Layer	Tool / Service	Purpose
-Network	VPC, SGs, NACLs, PrivateLink	Isolation
-IAM	Task Roles, Boundaries	Least privilege
-Image Security	ECR + Inspector	Vulnerability scanning
-Secrets	Secrets Manager	Secure secret handling
-Runtime	Fargate + Falco	Runtime anomaly detection
-Monitoring	CloudWatch + GuardDuty	Observability & intrusion detection
-Compliance	Config + Security Hub	Continuous compliance
+✅ **Example Security Stack Summary**
+| Layer              | Tool / Service               | Purpose                             |
+| ------------------ | ---------------------------- | ----------------------------------- |
+| **Network**        | VPC, SGs, NACLs, PrivateLink | Isolation                           |
+| **IAM**            | Task Roles, Boundaries       | Least privilege                     |
+| **Image Security** | ECR + Inspector              | Vulnerability scanning              |
+| **Secrets**        | Secrets Manager              | Secure secret handling              |
+| **Runtime**        | Fargate + Falco              | Runtime anomaly detection           |
+| **Monitoring**     | CloudWatch + GuardDuty       | Observability & intrusion detection |
+| **Compliance**     | Config + Security Hub        | Continuous compliance               |
+
 
 
