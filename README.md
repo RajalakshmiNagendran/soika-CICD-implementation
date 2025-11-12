@@ -271,6 +271,6 @@ Notes:
 * Apply container scanning using Trivy.
 * Plan for roll back deployment.
 * ECS Fargate security setup - https://chatgpt.com/share/6914349c-5a6c-8008-926d-9d62baec32c2(reference for ecs service discovery is really required).
-* 
+* https://github.com/marketplace/actions/aws-secrets-manager-github-action
 
 
