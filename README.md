@@ -267,7 +267,7 @@ Set budget alerts and CloudWatch anomaly detection.
 
 Notes:
 * espicially for fargate supported regions are available: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate-Regions.html
-* Amazon ECS service that uses Service Discovery -
+* Amazon ECS service that uses Service Discovery - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html
 * Apply container scanning using Trivy.
 * Plan for roll back deployment.
 
