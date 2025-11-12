@@ -265,4 +265,10 @@ Set budget alerts and CloudWatch anomaly detection.
 | **Compliance**     | Config + Security Hub        | Continuous compliance               |
 
 
+Notes:
+* espicially for fargate supported regions are available: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate-Regions.html
+* Amazon ECS service that uses Service Discovery -
+* Apply container scanning using Trivy.
+* Plan for roll back deployment.
+
 
