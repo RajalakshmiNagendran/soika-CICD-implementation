@@ -26,6 +26,8 @@ Scale on CPU/Memory or ALB request count (NLB → CPU based recommended)
 
 # Infrastructure security:
 
+**do NOT store credentials in plain env or GitHub Actions.**
+
 🔐 **1. Network & Infrastructure Security**
 VPC Design
 
