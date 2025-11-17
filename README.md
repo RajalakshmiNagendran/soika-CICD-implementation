@@ -18,6 +18,12 @@ By this way Github actions will connect with AWS
 
 Now if there is any push happened automatically the Github workflow will run and deploy the application in to the ECS cluster.
 
+**Auto-scaling**
+
+Min: 1 task
+Max: 5 tasks
+Scale on CPU/Memory or ALB request count (NLB → CPU based recommended)
+
 # Infrastructure security:
 
 🔐 **1. Network & Infrastructure Security**
